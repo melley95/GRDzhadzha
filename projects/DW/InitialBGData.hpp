@@ -52,13 +52,13 @@ class InitialBGData
 
         
         data_t chi = TensorAlgebra::compute_determinant_sym(vars.gamma);
-        chi = pow(chi, -1.0 / 3.0);
+        chi = pow(chi, -1.0 / 2.0);
         current_cell.store_vars(chi, c_chi);
     
    
      
         vars.K = m_params.K0;
-        FOR(i) vars.K_tensor[i][i] = (1.0/3.0)*vars.gamma[i][i]*m_params.K0; 
+        FOR(i) vars.K_tensor[i][i] = (1.0/2.0)*vars.gamma[i][i]*m_params.K0; 
         
         
         data_t K = vars.K;

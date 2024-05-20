@@ -54,7 +54,7 @@ class FLRW
 
         
         data_t chi = TensorAlgebra::compute_determinant_sym(metric_vars.gamma);
-        chi = pow(chi, -1.0 / 3.0);
+        chi = pow(chi, -1.0 / 2.0);
         current_cell.store_vars(chi, c_chi);
         
 
@@ -87,11 +87,11 @@ class FLRW
         }
         else{
             
-        double t0 = -3.0/(2.0*m_params.K0);
-        vars.K = -1.5*pow((m_time+t0), -1);
+        double t0 = -1.0/(m_params.K0);
+        vars.K = -1.0*pow((m_time+t0), -1);
         FOR(i) vars.gamma[i][i] = pow(((m_time+t0)/t0), 1.0); //assuming a0 = 1
 
-        FOR(i) vars.K_tensor[i][i] = (1.0/3.0)*vars.K*vars.gamma[i][i]; 
+        FOR(i) vars.K_tensor[i][i] = (1.0/2.0)*vars.K*vars.gamma[i][i]; 
         
         }
        

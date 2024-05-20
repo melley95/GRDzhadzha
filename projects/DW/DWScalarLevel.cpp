@@ -13,7 +13,7 @@
 #include "SmallDataIO.hpp"
 
 // For tag cells
-#include "FixedGridsTaggingCriterion.hpp"
+#include "ChiTaggingCriterion.hpp"
 
 // Problem specific includes
 #include "InitialScalarData.hpp"
@@ -76,6 +76,5 @@ void DWScalarLevel::specificPostTimeStep()
 void DWScalarLevel::computeTaggingCriterion(FArrayBox &tagging_criterion,
                                                 const FArrayBox &current_state)
 {
-    BoxLoops::loop(FixedGridsTaggingCriterion(m_dx, m_level, m_p.L, m_p.center),
-                   current_state, tagging_criterion);
+    BoxLoops::loop(ChiTaggingCriterion(m_dx), current_state, tagging_criterion);
 }

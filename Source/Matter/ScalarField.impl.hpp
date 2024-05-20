@@ -30,7 +30,7 @@ emtensor_t<data_t> ScalarField<potential_t>::compute_emtensor(
     my_potential.compute_potential(V_of_phi, dVdphi, vars);
 
     out.rho += V_of_phi;
-    out.S += -3.0 * V_of_phi;
+    out.S += -2.0 * V_of_phi;
     FOR2(i, j) { out.Sij[i][j] += -metric_vars.gamma[i][j] * V_of_phi; }
 
     return out;
